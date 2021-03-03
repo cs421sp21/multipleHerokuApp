@@ -42,16 +42,16 @@ You will find in this repository a folder named `.github` that contains a subfol
 
 The `on` block defines a set of rules telling GitHub when to run each workflow. The code in `backend.yml` for instance says "run this workflow whenever there are pushes to the `main` branch and files have changed in the `code/backend` directory.
 
-The `jobs` section is where we define a workflow to build and deploy the application. Notice the `${{ secrets.HEROKU_API_TOKEN }}`. GitHub allows you to store "secretes" such as API keys, authentication tokens, passwords, etc., in their version of environment variables which is called "secretes"! 
+The `jobs` section is where we define a workflow to build and deploy the application. Notice the `${{ secrets.HEROKU_API_TOKEN }}`. GitHub allows you to store "Secrets" such as API keys, authentication tokens, passwords, etc., in their version of environment variables which is called `secrets`! 
 
-Go to your GitHub repository's "Settings" tab and click on "Secretes". Click "New Secret" to add a new secrete!
+Go to your GitHub repository's "Settings" tab and click on "Secrets". Click "New Secret" to add a new secrete!
 
-You need to add three secretes:
+You need to add three secrets:
 
 1. `HEROKU_BACKEND_APP_NAME`: the name of your Heroku app which serves the backend
 2. `HEROKU_FRONTEND_APP_NAME`: the name of your Heroku app which serves the frontend
 3. `HEROKU_API_TOKEN`: this is the authentication token to access Heroku through your account. You can get this token by running `heroku auth:token` in your terminal (assuming Heroku CLI is installed).
 
-Once you have this "secretes" in place, you can make a change in the frontend/backend and push your code to your GitHub repository (to the `main` branch). On GitHub, go to "Actions" tab and watch what happens after you pushed your code! If all goes well, your Gradle projects in the _sub-directories_ will be deployed to their corresponding Heroku apps. Mine are deployed here:
+Once you have the secrets in place, you can make a change in the frontend/backend and push your code to your GitHub repository (to the `main` branch). On GitHub, go to "Actions" tab and watch what happens after you pushed your code! If all goes well, your Gradle projects in the _sub-directories_ will be deployed to their corresponding Heroku apps. Mine are deployed here:
 * https://monorepo-multiapp-backend.herokuapp.com/
 * https://monorepo-multiapp-frontend.herokuapp.com/
