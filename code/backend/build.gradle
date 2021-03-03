@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "com.heroku.sdk.heroku-gradle" version "2.0.0"
 }
 
 version '0.0.1'
@@ -27,4 +28,9 @@ jar {
     from {
         configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
+}
+
+heroku {
+    jdkVersion = 11
+    processTypes(web: "java -jar build/libs/backend-0.0.1.jar")
 }
