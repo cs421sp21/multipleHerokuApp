@@ -34,3 +34,6 @@ heroku {
     jdkVersion = 11
     processTypes(web: "java -jar build/libs/backend-0.0.1.jar")
 }
+
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
